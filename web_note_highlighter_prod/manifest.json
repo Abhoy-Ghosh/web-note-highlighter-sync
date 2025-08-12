@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Web Note Highlighter (Production)",
+  "version": "1.0.1",
+  "description": "Highlight text on webpages with color and notes. Production-ready: persistent storage, hover-delete, safe wrapping.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
